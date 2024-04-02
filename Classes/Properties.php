@@ -7,17 +7,54 @@ use Interfaces\InterfaceProperty;
 class Properties implements InterfaceProperty{
 
     public $name;
-    public $rent;
+    private $rent;
+    private Player $owner;
+    public $nbHouse;
+    public bool $hotel;
     
     public function checkOwner(): ?Player{
-       return null;
+        if ($this->owner != null) {
+            return $this->owner;
+        }
+        return null;
     }
 
-    public function hasHouse(): bool {
-        return false;
+    public function addHouse(int $houses) {
+        $this->nbHouse = $houses;
+    }
+
+    public function removeHouse() {
+        $this->nbHouse = 0;
+    }
+
+    public function hasHouses(): int {
+        if ($this->nbHouse != 0){
+            return $this->nbHouse;
+        }
+        return 0;
+    }
+
+    public function addHotel() {
+        $this->hotel = true;
+    }
+
+    public function removeHotel() {
+        $this->hotel = false;
     }
 
     public function hasHotel(): bool {
+        if ($this->hotel != 0){
+            return $this->hotel;
+        }
         return false;
+    }
+
+    public function getRent(){
+        return $this->rent;
+    }
+
+    public function setRent($rent){
+        $this->rent = $rent;
+        return $this;
     }
 }
