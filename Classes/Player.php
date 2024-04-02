@@ -17,11 +17,15 @@ class Player implements InterfacePlayer
     public $getOutOfJailCard; // nombre de cartes pour sortir de prison
 
     public function play(){
-
+        
     }
 
     public function move(){
 
+    }
+
+    public function drawCard(){
+        
     }
 
     public function buy(int $amount){

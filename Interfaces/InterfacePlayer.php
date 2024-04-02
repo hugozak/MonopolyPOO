@@ -5,6 +5,7 @@ namespace Interfaces;
 interface InterfacePlayer {
     public function play();
     public function move();
+    public function drawCard();
     public function buy(int $amount);
     public function sell(int $amount);
     public function payRent(int $amount);

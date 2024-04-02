@@ -6,18 +6,24 @@ use Interfaces\InterfaceDice;
 
 class Dice implements InterfaceDice 
 {
-    public int $value;
-    public int $nb_face;
+    private int $value;
+    private int $nbFace;
 
-    public function __construct($nb_face = 6)
-    {
-        $this->nb_face = $nb_face;
+    public function __construct($nbFace = 6){
+        $this->nbFace = $nbFace;
     }
 
-    public function roll(): int
-    {
-        $this->value = random_int(1, $this->nb_face);
+    public function roll(): int{
+        $this->value = random_int(1, $this->nbFace);
         return $this->value;
     }
-}
 
+    public function getValue(){
+        return $this->value;
+    }
+
+    public function setValue($value){
+        $this->value = $value;
+        return $this;
+    }
+}
