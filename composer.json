@@ -1,0 +1,18 @@
+{
+    "name": "hugo/poo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Hugo\\Poo\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "HugoZak",
+            "email": "zakrajsekhugo@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}
