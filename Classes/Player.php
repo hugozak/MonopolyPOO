@@ -57,7 +57,9 @@ class Player implements InterfacePlayer
     }
 
     public function checkBankruptcy(): bool{
-
+        if($this->money < 0){
+            return true;
+        }
         return false;
     }
 
