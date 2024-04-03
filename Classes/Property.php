@@ -4,13 +4,28 @@ namespace Classes;
 
 use Interfaces\InterfaceProperty;
 
+enum Type {
+    case TrainStation;
+    case Company;
+    case Street;
+}
+
 class Property implements InterfaceProperty{
 
     public $name;
     private $rent;
+    private Type $type;
+    private $rentOneHouse;
+    private $rentTwoHouses;
+    private $rentThreeHouses;
+    private $rentFourHouses;
+    private $rentHotel;
+    private $price;
+    private $hotelPrice;
+    private $housePrice;
     private Player $owner;
-    public $nbHouse;
-    public bool $hotel;
+    private $nbHouse = 0;
+    private bool $hotel = false;
 
     public function setOwner($player) {
         if($player != null){
@@ -33,42 +48,30 @@ class Property implements InterfaceProperty{
         return $this->owner;
     }
 
-    public function addHouse(int $houses) {
-        $this->nbHouse = $houses;
-    }
-
-    public function removeHouse() {
-        $this->nbHouse = 0;
-    }
-
-    public function hasHouses(): int {
-        if ($this->nbHouse != 0){
-            return $this->nbHouse;
-        }
-        return 0;
-    }
-
-    public function addHotel() {
-        $this->hotel = true;
-    }
-
-    public function removeHotel() {
-        $this->hotel = false;
-    }
-
-    public function hasHotel(): bool {
-        if ($this->hotel != 0){
-            return $this->hotel;
-        }
-        return false;
-    }
-
     public function getRent(){
         return $this->rent;
     }
 
     public function setRent($rent){
         $this->rent = $rent;
+        return $this;
+    }
+
+    public function getNbHouse(){
+        return $this->nbHouse;
+    }
+
+    public function setNbHouse($nbHouse){
+        $this->nbHouse = $nbHouse;
+        return $this;
+    }
+
+    public function getHotel(){
+        return $this->hotel;
+    }
+
+    public function setHotel($hotel){
+        $this->hotel = $hotel;
         return $this;
     }
 }
