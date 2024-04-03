@@ -2,9 +2,11 @@
 
 namespace Interfaces;
 
+use Classes\Property;
+
 interface InterfacePlayer {
     public function play();
-    public function move();
+    public function move(int $number);
     public function drawCard();
     public function buy(int $amount);
     public function sell(int $amount);

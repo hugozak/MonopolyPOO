@@ -3,37 +3,47 @@
 namespace Classes;
 
 use Interfaces\InterfacePlayer;
+use Config\Config;
 
 class Player implements InterfacePlayer
 {
 
-    public $currentCase; // position du joueur sur le plateau
-    public $money; // montant du joueur
-    public $properties; // propriétés du joueur
-    public $houses; // nombre de maison 
-    public $hotels; // nombre d'hotels
-    public $inJail; //bool pour savoir si le joueur est en prison
-    public $isBankrupt; // bool pour savoir si le joueur est banqueroute
-    public $getOutOfJailCard; // nombre de cartes pour sortir de prison
+    private $currentCase; // position du joueur sur le plateau
+    private $money; // montant du joueur
+    private $properties = []; // propriétés du joueur
+    private $houses; // nombre de maison 
+    private $hotels; // nombre d'hotels
+    private $inJail; //bool pour savoir si le joueur est en prison
+    private $isBankrupt; // bool pour savoir si le joueur est banqueroute
+    private $getOutOfJailCard; // nombre de cartes pour sortir de prison
+    private Square $location; // case où est situé le joueur
 
     public function play(){
         
     }
 
-    public function move(){
-
+    public function move(int $number){
+        if ($this->currentCase + $number < Config::$cases){
+            $this->currentCase += $number;
+        } else {
+            $this->currentCase += $number - Config::$cases;
+            $this->money += Config::$salary;
+        }
     }
 
     public function drawCard(){
         
     }
 
-    public function buy(int $amount){
-
+    public function buy(int $amount /*Property $property*/){
+        // $property->setOwner($this);
+        // $property->setRent($amount);
+        // array_push($properties, $property);
+        
     }
 
     public function sell(int $amount){
-
+        
     }
 
     public function payRent(int $amount){
@@ -57,15 +67,11 @@ class Player implements InterfacePlayer
     }
 
     public function checkBankruptcy(): bool{
-        if($this->money < 0){
-            return true;
-        }
-        return false;
+        return $this->isBankrupt;
     }
 
     public function checkJail(): bool{
-
-        return false;
+        return $this->inJail;
     }
 
     public function endTurn(){
