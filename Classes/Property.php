@@ -4,13 +4,23 @@ namespace Classes;
 
 use Interfaces\InterfaceProperty;
 
-class Properties implements InterfaceProperty{
+class Property implements InterfaceProperty{
 
     public $name;
     private $rent;
     private Player $owner;
     public $nbHouse;
     public bool $hotel;
+
+    public function setOwner($player) {
+        if($player != null){
+            $this->owner = $player;
+        }
+    }
+
+    public function removeOwner() {
+        $this->owner = null;
+    }
     
     public function checkOwner(): ?Player{
         if ($this->owner != null) {
