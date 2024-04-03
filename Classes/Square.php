@@ -5,9 +5,17 @@ namespace Classes;
 use Interfaces\InterfaceSquare;
 
 class Square implements InterfaceSquare {
-    public function checkOwner(): ?Player
+
+    private Property $property;
+
+    public function getProperty()
     {
-        
-        return null;
+        return $this->property;
+    }
+
+    public function setProperty($property)
+    {
+        $this->property = $property;
+        return $this;
     }
 }

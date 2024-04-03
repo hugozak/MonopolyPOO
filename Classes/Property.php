@@ -29,6 +29,10 @@ class Property implements InterfaceProperty{
         return null;
     }
 
+    public function getOwner(){
+        return $this->owner;
+    }
+
     public function addHouse(int $houses) {
         $this->nbHouse = $houses;
     }

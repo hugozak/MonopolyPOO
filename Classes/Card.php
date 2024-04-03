@@ -4,8 +4,11 @@ namespace Classes;
 
 use Interfaces\InterfaceCard;
 
-class Card implements InterfaceCard {
-    public function draw(){
-        
+abstract class Card implements InterfaceCard {
+
+    private String $description;
+
+    public function getDescription(){
+        return $this->description;
     }
 }

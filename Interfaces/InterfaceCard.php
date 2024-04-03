@@ -3,5 +3,5 @@
 namespace Interfaces;
 
 interface InterfaceCard {
-    public function draw();
+    public function getDescription();
 }
