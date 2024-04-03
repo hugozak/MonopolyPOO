@@ -17,6 +17,7 @@ class Player implements InterfacePlayer
     private $isBankrupt; // bool pour savoir si le joueur est banqueroute
     private $getOutOfJailCard; // nombre de cartes pour sortir de prison
     private Square $location; // case où est situé le joueur
+    private $turnInJail; // nombre de tours depuis lequel le joueur est en prison
 
     public function play(){
         
@@ -35,11 +36,10 @@ class Player implements InterfacePlayer
         
     }
 
-    public function buy(int $amount /*Property $property*/){
-        // $property->setOwner($this);
-        // $property->setRent($amount);
-        // array_push($properties, $property);
-        
+    public function buy(int $amount, Property $property){
+        $property->setOwner($this);
+        $property->setRent($amount);
+        array_push($properties, $property);
     }
 
     public function sell(int $amount){

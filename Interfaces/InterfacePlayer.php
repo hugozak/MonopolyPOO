@@ -8,7 +8,7 @@ interface InterfacePlayer {
     public function play();
     public function move(int $number);
     public function drawCard();
-    public function buy(int $amount);
+    public function buy(int $amount, Property $property);
     public function sell(int $amount);
     public function payRent(int $amount);
     public function buyHouse(int $amount);
