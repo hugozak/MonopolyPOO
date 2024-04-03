@@ -23,6 +23,6 @@ class Dices {
 
     public function isDouble(): bool
     {
-        return $this->dice_1->value == $this->dice_2->value;
+        return $this->dice_1->getValue() == $this->dice_2->getValue();
     }
 }
